@@ -21,9 +21,22 @@ def invert(n):
     return m
 
 
+def invert_1(n):
+    m = 0
+    if len(n) == 1:
+        m += int(n) // (len(n))
+        return m
+    else:
+       m = (int(n) % 10)* 10 ** (len(n) -1) + invert(str(int(n) // 10))
+       return m
+
+
 n = input(f'Введите целое неотрицательное число: ')
 m = invert(n)
+m = invert_1(n)
 print(f'Введённое число с цифрами в обратном порядке: {m}')
+print(f'Введённое число с цифрами в обратном порядке (рекурсия): {m}')
 
-# # это тест, а не решение
-# print(m == int(n[::-1]))
+
+
+
